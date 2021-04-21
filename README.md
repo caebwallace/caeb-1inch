@@ -100,4 +100,4 @@ Thanks to [axios](https://github.com/axios/axios) and [web3](https://github.com/
 
 [MIT](LICENSE)
 
-Made with [Caeb WALLACE](https://twitter.com/caeb_wallace).
+Made with ❤️ by [Caeb WALLACE](https://twitter.com/caeb_wallace)
