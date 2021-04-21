@@ -61,10 +61,10 @@ describe('test client 1inch', () => {
             it('should fails if fromTokenAddress is not valid', async () => {
                 expect.assertions(1);
                 try {
-                    await client.getPairPrice({
+                    await client.getPairPriceByAddress({
                         fromTokenAddress: 'BAD_ADDRESS',
                         toTokenAddress: getTokenBySymbolMock.USDC.output.address,
-                        amount: 10000000,
+                        amount: 1,
                     });
                 } catch (err) {
                     expect(err).toEqual(new Error('"fromTokenAddress" is not valid.'));
@@ -73,10 +73,10 @@ describe('test client 1inch', () => {
             it('should fails if toTokenAddress is not valid', async () => {
                 expect.assertions(1);
                 try {
-                    await client.getPairPrice({
+                    await client.getPairPriceByAddress({
                         fromTokenAddress: getTokenBySymbolMock.governance.output.address,
                         toTokenAddress: 'BAD_ADDRESS',
-                        amount: 10000000,
+                        amount: 1,
                     });
                 } catch (err) {
                     expect(err).toEqual(new Error('"toTokenAddress" is not valid.'));
@@ -85,10 +85,10 @@ describe('test client 1inch', () => {
             it('should fails if fromTokenAddress is not in the token list', async () => {
                 expect.assertions(1);
                 try {
-                    await client.getPairPrice({
+                    await client.getPairPriceByAddress({
                         fromTokenAddress: unknownTokenAddress,
                         toTokenAddress: getTokenBySymbolMock.USDC.output.address,
-                        amount: 10000000,
+                        amount: 1,
                     });
                 } catch (err) {
                     expect(err).toEqual(new Error(`"fromTokenAddress" ${unknownTokenAddress} is not in the tokens list.`));
@@ -97,10 +97,10 @@ describe('test client 1inch', () => {
             it('should fails if toTokenAddress is not in the token list', async () => {
                 expect.assertions(1);
                 try {
-                    await client.getPairPrice({
+                    await client.getPairPriceByAddress({
                         fromTokenAddress: getTokenBySymbolMock.governance.output.address,
                         toTokenAddress: unknownTokenAddress,
-                        amount: 10000000,
+                        amount: 1,
                     });
                 } catch (err) {
                     expect(err).toEqual(new Error(`"toTokenAddress" ${unknownTokenAddress} is not in the tokens list.`));
@@ -108,9 +108,23 @@ describe('test client 1inch', () => {
             });
             it('should success', async () => {
                 try {
-                    const price = await client.getPairPrice({
+                    const price = await client.getPairPriceByAddress({
                         fromTokenAddress: getTokenBySymbolMock.governance.output.address,
                         toTokenAddress: getTokenBySymbolMock.USDC.output.address,
+                        amount: 1,
+                    });
+                    expect(price).toEqual(fetchRequestMockPriceExpected);
+                } catch (err) {
+                    throw err;
+                }
+            });
+        });
+        describe('getPairPriceBySymbols', () => {
+            it('should success', async () => {
+                try {
+                    const price = await client.getPairPriceBySymbols({
+                        fromTokenSymbol: getTokenBySymbolMock.governance.input,
+                        toTokenSymbol: getTokenBySymbolMock.USDC.input,
                         amount: 1,
                     });
                     expect(price).toEqual(fetchRequestMockPriceExpected);

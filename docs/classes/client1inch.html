@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Client1inch | caeb-1inch - v0.1.12</title>
-	<meta name="description" content="Documentation for caeb-1inch - v0.1.12">
+	<title>Client1inch | caeb-1inch - v0.1.13</title>
+	<meta name="description" content="Documentation for caeb-1inch - v0.1.13">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
 	<script async src="../assets/js/search.js" id="search-script"></script>
@@ -23,7 +23,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="../index.html" class="title">caeb-1inch - v0.1.12</a>
+					<a href="../index.html" class="title">caeb-1inch - v0.1.13</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -52,7 +52,7 @@
 		<div class="container">
 			<ul class="tsd-breadcrumb">
 				<li>
-					<a href="../modules.html">caeb-1inch - v0.1.12</a>
+					<a href="../modules.html">caeb-1inch - v0.1.13</a>
 				</li>
 				<li>
 					<a href="client1inch.html">Client1inch</a>
@@ -103,7 +103,8 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="client1inch.html#getpairprice" class="tsd-kind-icon">get<wbr>Pair<wbr>Price</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="client1inch.html#getpairpricebyaddress" class="tsd-kind-icon">get<wbr>Pair<wbr>Price<wbr>ByAddress</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="client1inch.html#getpairpricebysymbols" class="tsd-kind-icon">get<wbr>Pair<wbr>Price<wbr>BySymbols</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="client1inch.html#gettokenbysymbol" class="tsd-kind-icon">get<wbr>Token<wbr>BySymbol</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="client1inch.html#gettokenslist" class="tsd-kind-icon">get<wbr>Tokens<wbr>List</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="client1inch.html#isaddressvalid" class="tsd-kind-icon">is<wbr>Address<wbr>Valid</a></li>
@@ -124,7 +125,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in index.ts:50</li>
+									<li>Defined in index.ts:57</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -156,7 +157,7 @@
 					<div class="tsd-signature tsd-kind-icon">api<wbr>Url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &#x27;https://api.1inch.exchange&#x27;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in index.ts:44</li>
+							<li>Defined in index.ts:51</li>
 						</ul>
 					</aside>
 				</section>
@@ -166,7 +167,7 @@
 					<div class="tsd-signature tsd-kind-icon">api<wbr>Version<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &#x27;v3.0&#x27;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in index.ts:45</li>
+							<li>Defined in index.ts:52</li>
 						</ul>
 					</aside>
 				</section>
@@ -176,7 +177,7 @@
 					<div class="tsd-signature tsd-kind-icon">chain<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in index.ts:46</li>
+							<li>Defined in index.ts:53</li>
 						</ul>
 					</aside>
 				</section>
@@ -186,7 +187,7 @@
 					<div class="tsd-signature tsd-kind-icon">price<wbr>Multiplier<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 10</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in index.ts:49</li>
+							<li>Defined in index.ts:56</li>
 						</ul>
 					</aside>
 				</section>
@@ -196,7 +197,7 @@
 					<div class="tsd-signature tsd-kind-icon">price<wbr>Precision<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 18</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in index.ts:48</li>
+							<li>Defined in index.ts:55</li>
 						</ul>
 					</aside>
 				</section>
@@ -204,16 +205,16 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="getpairprice" class="tsd-anchor"></a>
-					<h3>get<wbr>Pair<wbr>Price</h3>
+					<a name="getpairpricebyaddress" class="tsd-anchor"></a>
+					<h3>get<wbr>Pair<wbr>Price<wbr>ByAddress</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Pair<wbr>Price<span class="tsd-signature-symbol">(</span>attributes<span class="tsd-signature-symbol">: </span><a href="../interfaces/client1inchrequestquote.html" class="tsd-signature-type" data-tsd-kind="Interface">Client1inchRequestQuote</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Pair<wbr>Price<wbr>ByAddress<span class="tsd-signature-symbol">(</span>attributes<span class="tsd-signature-symbol">: </span><a href="../interfaces/client1inchrequestquoteaddress.html" class="tsd-signature-type" data-tsd-kind="Interface">Client1inchRequestQuoteAddress</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in index.ts:98</li>
+									<li>Defined in index.ts:105</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -229,7 +230,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>attributes: <a href="../interfaces/client1inchrequestquote.html" class="tsd-signature-type" data-tsd-kind="Interface">Client1inchRequestQuote</a></h5>
+									<h5>attributes: <a href="../interfaces/client1inchrequestquoteaddress.html" class="tsd-signature-type" data-tsd-kind="Interface">Client1inchRequestQuoteAddress</a></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>The request attributes.</p>
 									</div>
@@ -238,6 +239,40 @@
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
 							<ul>
 								<li>The price of the pair quote.</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getpairpricebysymbols" class="tsd-anchor"></a>
+					<h3>get<wbr>Pair<wbr>Price<wbr>BySymbols</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Pair<wbr>Price<wbr>BySymbols<span class="tsd-signature-symbol">(</span>attributes<span class="tsd-signature-symbol">: </span><a href="../interfaces/client1inchrequestquotesymbol.html" class="tsd-signature-type" data-tsd-kind="Interface">Client1inchRequestQuoteSymbol</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in index.ts:135</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get the price with symbols instead of contract addressed.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>attributes: <a href="../interfaces/client1inchrequestquotesymbol.html" class="tsd-signature-type" data-tsd-kind="Interface">Client1inchRequestQuoteSymbol</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The request attributes.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<ul>
+								<li>The returns of getPairPrice method.</li>
 							</ul>
 						</li>
 					</ul>
@@ -252,7 +287,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in index.ts:85</li>
+									<li>Defined in index.ts:92</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -286,7 +321,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in index.ts:73</li>
+									<li>Defined in index.ts:80</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -325,7 +360,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in index.ts:129</li>
+									<li>Defined in index.ts:154</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -396,7 +431,10 @@
 								<a href="client1inch.html#priceprecision" class="tsd-kind-icon">price<wbr>Precision</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="client1inch.html#getpairprice" class="tsd-kind-icon">get<wbr>Pair<wbr>Price</a>
+								<a href="client1inch.html#getpairpricebyaddress" class="tsd-kind-icon">get<wbr>Pair<wbr>Price<wbr>ByAddress</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="client1inch.html#getpairpricebysymbols" class="tsd-kind-icon">get<wbr>Pair<wbr>Price<wbr>BySymbols</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="client1inch.html#gettokenbysymbol" class="tsd-kind-icon">get<wbr>Token<wbr>BySymbol</a>
@@ -415,7 +453,10 @@
 						<a href="../interfaces/client1inchprops.html" class="tsd-kind-icon">Client1inch<wbr>Props</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="../interfaces/client1inchrequestquote.html" class="tsd-kind-icon">Client1inch<wbr>Request<wbr>Quote</a>
+						<a href="../interfaces/client1inchrequestquoteaddress.html" class="tsd-kind-icon">Client1inch<wbr>Request<wbr>Quote<wbr>Address</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/client1inchrequestquotesymbol.html" class="tsd-kind-icon">Client1inch<wbr>Request<wbr>Quote<wbr>Symbol</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="../interfaces/itoken.html" class="tsd-kind-icon">IToken</a>

@@ -10,9 +10,16 @@ export interface Client1inchProps {
     pricePrecision?: number;
 }
 
-export interface Client1inchRequestQuote {
+export interface Client1inchRequestQuoteAddress {
     fromTokenAddress: string;
     toTokenAddress: string;
+    amount: number;
+    fee?: number;
+}
+
+export interface Client1inchRequestQuoteSymbol {
+    fromTokenSymbol: string;
+    toTokenSymbol: string;
     amount: number;
     fee?: number;
 }
@@ -80,7 +87,7 @@ export class Client1inch {
      * Search a token from its symbol.
      *
      * @param {string} symbol - The token symbol.
-     * @returns {IToken} - The token if found.
+     * @returns {Promise<IToken>} - The token if found.
      */
     public async getTokenBySymbol(symbol: string): Promise<IToken> {
         const tokens = await this.getTokensList();
@@ -91,11 +98,11 @@ export class Client1inch {
     /**
      * Returns the price of a pair of contrat addresses.
      *
-     * @param {Client1inchRequestQuote} attributes - The request attributes.
-     * @returns {number} - The price of the pair quote.
+     * @param {Client1inchRequestQuoteAddress} attributes - The request attributes.
+     * @returns {Promise<number>} - The price of the pair quote.
      * @memberof Client1inch
      */
-    public async getPairPrice(attributes: Client1inchRequestQuote) {
+    public async getPairPriceByAddress(attributes: Client1inchRequestQuoteAddress): Promise<number> {
         const tokens = await this.getTokensList();
 
         if (!this.isAddressValid(attributes.fromTokenAddress)) {
@@ -111,12 +118,30 @@ export class Client1inch {
             throw new Error(`"toTokenAddress" ${attributes.toTokenAddress} is not in the tokens list.`);
         }
 
-        const params: Client1inchRequestQuote = { ...attributes };
+        const params: Client1inchRequestQuoteAddress = { ...attributes };
         params.amount = params.amount * 10 ** this.priceMultiplier;
         const data = await this.fetchRequest('quote', params);
         const toTokenAmount = data.toTokenAmount / 10 ** this.priceMultiplier;
 
         return toTokenAmount;
+    }
+
+    /**
+     * Get the price with symbols instead of contract addressed.
+     *
+     * @param {Client1inchRequestQuoteSymbol} attributes - The request attributes.
+     * @returns {Promise<number>} - The returns of getPairPrice method.
+     */
+    public async getPairPriceBySymbols(attributes: Client1inchRequestQuoteSymbol): Promise<number> {
+        const fromToken: IToken = await this.getTokenBySymbol(attributes.fromTokenSymbol);
+        const toToken: IToken = await this.getTokenBySymbol(attributes.toTokenSymbol);
+        const req: Client1inchRequestQuoteAddress = {
+            fromTokenAddress: fromToken.address,
+            toTokenAddress: toToken.address,
+            amount: attributes.amount,
+            fee: attributes.fee,
+        };
+        return this.getPairPriceByAddress(req);
     }
 
     /**

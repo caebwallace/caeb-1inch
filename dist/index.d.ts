@@ -7,9 +7,15 @@ export interface Client1inchProps {
     proxy?: string;
     pricePrecision?: number;
 }
-export interface Client1inchRequestQuote {
+export interface Client1inchRequestQuoteAddress {
     fromTokenAddress: string;
     toTokenAddress: string;
+    amount: number;
+    fee?: number;
+}
+export interface Client1inchRequestQuoteSymbol {
+    fromTokenSymbol: string;
+    toTokenSymbol: string;
     amount: number;
     fee?: number;
 }
@@ -37,7 +43,8 @@ export declare class Client1inch {
     constructor(attributes?: Client1inchProps);
     getTokensList(force?: boolean): Promise<ITokenList>;
     getTokenBySymbol(symbol: string): Promise<IToken>;
-    getPairPrice(attributes: Client1inchRequestQuote): Promise<number>;
+    getPairPriceByAddress(attributes: Client1inchRequestQuoteAddress): Promise<number>;
+    getPairPriceBySymbols(attributes: Client1inchRequestQuoteSymbol): Promise<number>;
     isAddressValid(address: string): boolean;
     private fetchRequest;
     private buildRequestParams;

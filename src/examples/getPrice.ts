@@ -10,7 +10,7 @@ import Caeb1inch, { IBlockchain, IToken } from '../index';
     // Get the quote price for a pair of contracts
     const fromToken: IToken = await client.getTokenBySymbol('BNB');
     const toToken: IToken = await client.getTokenBySymbol('USDC');
-    const price = await client.getPairPrice({
+    const price = await client.getPairPriceByAddress({
         fromTokenAddress: fromToken.address,
         toTokenAddress: toToken.address,
         amount: 1,

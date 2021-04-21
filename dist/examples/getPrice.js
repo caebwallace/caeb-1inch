@@ -74,7 +74,7 @@ const index_1 = __importStar(require('../index'));
         const client = new index_1.default({ chainId: index_1.IBlockchain.BSC });
         const fromToken = yield client.getTokenBySymbol('BNB');
         const toToken = yield client.getTokenBySymbol('USDC');
-        const price = yield client.getPairPrice({
+        const price = yield client.getPairPriceByAddress({
             fromTokenAddress: fromToken.address,
             toTokenAddress: toToken.address,
             amount: 1,

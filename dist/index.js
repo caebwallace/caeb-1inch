@@ -72,7 +72,7 @@ class Client1inch {
             return token;
         });
     }
-    getPairPrice(attributes) {
+    getPairPriceByAddress(attributes) {
         return __awaiter(this, void 0, void 0, function* () {
             const tokens = yield this.getTokensList();
             if (!this.isAddressValid(attributes.fromTokenAddress)) {
@@ -92,6 +92,19 @@ class Client1inch {
             const data = yield this.fetchRequest('quote', params);
             const toTokenAmount = data.toTokenAmount / Math.pow(10, this.priceMultiplier);
             return toTokenAmount;
+        });
+    }
+    getPairPriceBySymbols(attributes) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const fromToken = yield this.getTokenBySymbol(attributes.fromTokenSymbol);
+            const toToken = yield this.getTokenBySymbol(attributes.toTokenSymbol);
+            const req = {
+                fromTokenAddress: fromToken.address,
+                toTokenAddress: toToken.address,
+                amount: attributes.amount,
+                fee: attributes.fee,
+            };
+            return this.getPairPriceByAddress(req);
         });
     }
     isAddressValid(address) {
