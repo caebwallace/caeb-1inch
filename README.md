@@ -53,6 +53,12 @@ const price = await client.getPairPrice({
 // 583.4774620321
 ```
 
+## Examples
+
+You can find examples in [/examples](/examples)` :
+
+-   [examples/getPrice.ts](/examples/getPrice.ts)
+
 ## Run Unit Tests
 
 ```shell
