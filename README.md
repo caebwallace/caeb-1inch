@@ -74,7 +74,7 @@ priceMultiplier: number = 10
 
 ## More docs
 
-You can download package and open `docs/index.html` for extended informations and documentations.
+You can download package and open [https://caebwallace.github.io/caeb-1inch/](https://caebwallace.github.io/caeb-1inch/) for extended informations and documentations.
 
 ## Want to donate ?
 
