@@ -72,7 +72,7 @@ export class Client1inch {
      */
     public async getTokensList(force: boolean = false): Promise<ITokenList> {
         if (this.tokens && !force) return this.tokens;
-        this.tokens = await this.fetchRequest('tokens');
+        this.tokens = (await this.fetchRequest('tokens')).tokens;
         return this.tokens;
     }
 

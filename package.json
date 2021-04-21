@@ -1,6 +1,6 @@
 {
     "name": "caeb-1inch",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "1inch Wrapper made by CAEB",
     "main": "src/index.ts",
     "types": "global.d.ts",
@@ -14,7 +14,8 @@
         "format": "prettier --write \"src/**/*.{ts,json}\"",
         "lint": "tslint -p tsconfig.json",
         "prepare": "husky install",
-        "doc": "rimraf ./docs && typedoc"
+        "doc": "rimraf ./docs && typedoc",
+        "example": "ts-node-dev -- src/examples/getPrice.ts"
     },
     "homepage": "https://github.com/caebwallace/caeb-1inch#readme",
     "repository": {
