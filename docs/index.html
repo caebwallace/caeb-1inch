@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>caeb-1inch - v0.1.13</title>
-	<meta name="description" content="Documentation for caeb-1inch - v0.1.13">
+	<title>caeb-1inch - v0.1.14</title>
+	<meta name="description" content="Documentation for caeb-1inch - v0.1.14">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/css/main.css">
 	<script async src="assets/js/search.js" id="search-script"></script>
@@ -23,7 +23,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="index.html" class="title">caeb-1inch - v0.1.13</a>
+					<a href="index.html" class="title">caeb-1inch - v0.1.14</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -50,7 +50,7 @@
 	</div>
 	<div class="tsd-page-title">
 		<div class="container">
-			<h1>caeb-1inch - v0.1.13</h1>
+			<h1>caeb-1inch - v0.1.14</h1>
 		</div>
 	</div>
 </header>
@@ -100,7 +100,7 @@
 <span style="color: #008000">// }</span>
 
 <span style="color: #008000">// Get the quote price for a pair of symbols</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">price</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getPairPrice</span><span style="color: #000000">({</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">price</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getPairPriceBySymbols</span><span style="color: #000000">({</span>
 <span style="color: #000000">    </span><span style="color: #001080">fromTokenSymbol:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;BNB&#039;</span><span style="color: #000000">,</span>
 <span style="color: #000000">    </span><span style="color: #001080">toTokenSymbol:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;USDC&#039;</span><span style="color: #000000">,</span>
 <span style="color: #000000">    </span><span style="color: #001080">amount:</span><span style="color: #000000"> </span><span style="color: #098658">1</span><span style="color: #000000">,</span>
@@ -108,7 +108,7 @@
 <span style="color: #008000">// 583.4774620321</span>
 
 <span style="color: #008000">// Get the quote price for a pair of contracts</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">price</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getPairPrice</span><span style="color: #000000">({</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">price</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">getPairPriceByAddress</span><span style="color: #000000">({</span>
 <span style="color: #000000">    </span><span style="color: #A31515">&#039;0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee&#039;</span><span style="color: #000000">,</span>
 <span style="color: #000000">    </span><span style="color: #A31515">&#039;0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d&#039;</span><span style="color: #000000">,</span>
 <span style="color: #000000">    </span><span style="color: #001080">amount:</span><span style="color: #000000"> </span><span style="color: #098658">1</span><span style="color: #000000">,</span>
