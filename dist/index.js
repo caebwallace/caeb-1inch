@@ -56,13 +56,12 @@ class Client1inch {
         if (attributes && attributes.apiUrl) this.apiUrl = attributes.apiUrl;
         if (attributes && attributes.apiVersion) this.apiVersion = attributes.apiVersion;
         if (attributes && attributes.chainId) this.chainId = attributes.chainId;
-        if (attributes && attributes.proxy) this.proxy = attributes.proxy;
         if (attributes && attributes.pricePrecision) this.pricePrecision = attributes.pricePrecision;
     }
     getTokensList(force = false) {
         return __awaiter(this, void 0, void 0, function* () {
             if (this.tokens && !force) return this.tokens;
-            this.tokens = yield this.fetchRequest('tokens');
+            this.tokens = (yield this.fetchRequest('tokens')).tokens;
             return this.tokens;
         });
     }

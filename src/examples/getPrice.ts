@@ -17,5 +17,5 @@ import Caeb1inch, { IBlockchain, IToken } from '../index';
     });
 
     // Show price
-    console.log(`${fromToken.symbol} / ${toToken.symbol} :`, price);
+    console.warn(`${fromToken.symbol} / ${toToken.symbol} :`, price);
 })();

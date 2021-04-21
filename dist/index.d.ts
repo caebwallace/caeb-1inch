@@ -31,7 +31,6 @@ export declare class Client1inch {
     protected apiUrl: string;
     protected apiVersion: string;
     protected chainId: number;
-    protected proxy: string;
     protected pricePrecision: number;
     protected priceMultiplier: number;
     private tokens;
