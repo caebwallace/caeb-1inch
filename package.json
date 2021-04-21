@@ -1,6 +1,6 @@
 {
     "name": "caeb-1inch",
-    "version": "0.1.11",
+    "version": "0.1.12",
     "description": "1inch Wrapper made by CAEB",
     "main": "dist/index.js",
     "scripts": {
@@ -15,7 +15,7 @@
         "prepare": "husky install",
         "doc": "rimraf ./docs && typedoc",
         "example": "ts-node-dev -- src/examples/getPrice.ts",
-        "publish": "npm run build && npm publish"
+        "build:publish": "npm --no-git-tag-version version patch && npm run build && npm publish"
     },
     "homepage": "https://github.com/caebwallace/caeb-1inch#readme",
     "repository": {
