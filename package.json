@@ -1,9 +1,8 @@
 {
     "name": "caeb-1inch",
-    "version": "0.1.9",
+    "version": "0.1.10",
     "description": "1inch Wrapper made by CAEB",
-    "main": "src/index.ts",
-    "types": "global.d.ts",
+    "main": "dist/index.js",
     "scripts": {
         "build": "npm run format && npm run lint && npm run test && npm run build:clean:before && tsc --project tsconfig.build.json --skipLibCheck && npm run doc",
         "build:clean:before": "rimraf ./dist",
