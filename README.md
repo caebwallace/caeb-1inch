@@ -77,14 +77,14 @@ npm run test:watch
 
 ## Options
 
-| Var             | Type   | Default                    | Desc                                                                             |
-| :-------------- | :----- | :------------------------- | :------------------------------------------------------------------------------- |
-| apiUrl          | string | https://api.1inch.exchange | The 1inch API domain                                                             |
-| apiVersion      | string | v3.0                       | The 1inch version to use                                                         |
-| chainId         | number | 56                         | The Blockchain ID to use (ETH: 1, BSC: 56)                                       |
-| priceMultiplier | number | 10                         | The price multiplier to apply on amount to have enough floats in the quote price |
+| Var             | Type   | Default                    | Desc                                                                                    |
+| :-------------- | :----- | :------------------------- | :-------------------------------------------------------------------------------------- |
+| apiUrl          | string | https://api.1inch.exchange | The 1inch API url.                                                                      |
+| apiVersion      | string | v3.0                       | The 1inch version to use.                                                               |
+| chainId         | number | 56                         | The Blockchain ID to use (**ETH**: 1, **BSC**: 56).                                     |
+| priceMultiplier | number | 10                         | The price multiplier to apply on quote amount to have enough floats in the quote price. |
 
-## Typescript doc
+## Documentation
 
 Visit [https://caebwallace.github.io/caeb-1inch/](https://caebwallace.github.io/caeb-1inch/) for extended informations and documentations.
 

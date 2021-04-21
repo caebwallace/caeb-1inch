@@ -1,6 +1,6 @@
 {
     "name": "caeb-1inch",
-    "version": "0.1.17",
+    "version": "0.1.18",
     "description": "1inch Wrapper made by CAEB",
     "main": "dist/index.js",
     "scripts": {
@@ -24,11 +24,12 @@
     },
     "keywords": [
         "CAEB",
-        "1inch",
-        "bsc",
-        "eth",
-        "ethereum",
-        "oracle"
+        "1INCH",
+        "BSC",
+        "ETH",
+        "ETHEREUM",
+        "BINANCE",
+        "ORACLE"
     ],
     "author": "Caeb WALLACE (https://github.com/caebwallace/)",
     "license": "MIT",
