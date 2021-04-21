@@ -43,7 +43,7 @@ const token = await client.getTokenBySymbol('BNB');
 // }
 
 // Get the quote price for a pair of symbols
-const price = await client.getPairPrice({
+const price = await client.getPairPriceBySymbols({
     fromTokenSymbol: 'BNB',
     toTokenSymbol: 'USDC',
     amount: 1,
@@ -51,7 +51,7 @@ const price = await client.getPairPrice({
 // 583.4774620321
 
 // Get the quote price for a pair of contracts
-const price = await client.getPairPrice({
+const price = await client.getPairPriceByAddress({
     '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
     '0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d',
     amount: 1,
