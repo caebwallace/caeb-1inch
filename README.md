@@ -77,14 +77,14 @@ npm run test:watch
 
 ## Options and defaults
 
-```
-apiUrl: string = 'https://api.1inch.exchange'
-apiVersion: string = 'v3.0'
-chainId: number = 56
-priceMultiplier: number = 10
-```
+| Var             | Type   | Default                    | Desc                                                                             |
+| --------------- | :----- | -------------------------- | -------------------------------------------------------------------------------- |
+| apiUrl          | string | https://api.1inch.exchange | The 1inch API domain                                                             |
+| apiVersion      | string | v3.0                       | The 1inch version to use                                                         |
+| chainId         | number | 56                         | The Blockchain ID to use (ETH: 1, BSC: 56)                                       |
+| priceMultiplier | number | 10                         | The price multiplier to apply on amount to have enough floats in the quote price |
 
-## More docs
+## Typescript doc
 
 Visit [https://caebwallace.github.io/caeb-1inch/](https://caebwallace.github.io/caeb-1inch/) for extended informations and documentations.
 
@@ -92,6 +92,12 @@ Visit [https://caebwallace.github.io/caeb-1inch/](https://caebwallace.github.io/
 
 If you like **that project and my work**, you can send me your **favorite shitcoin** to my **ERC20** / **BEP20** wallet address : [0x1Ed970C1D3F9B85bA6607d45C752E22D9b0b09f4](https://bscscan.com/address/0x1Ed970C1D3F9B85bA6607d45C752E22D9b0b09f4)
 
+## Credits
+
+Thanks to [axios](https://github.com/axios/axios) and [web3](https://github.com/ChainSafe/web3.js) for their developments and products.
+
 ## License
 
-Copyright © 2021, [Caeb WALLACE](https://twitter.com/caeb_wallace). Released under the MIT License.
+[MIT](LICENSE)
+
+Made with [Caeb WALLACE](https://twitter.com/caeb_wallace).
