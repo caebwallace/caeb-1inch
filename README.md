@@ -57,7 +57,7 @@ const price = await client.getPairPrice({
 
 You can find examples in [/examples](/examples) :
 
--   [examples/getPrice.ts](/examples/getPrice.ts)
+-   [src/examples/getPrice.ts](/src/examples/getPrice.ts)
 
 ## Run Unit Tests
 
