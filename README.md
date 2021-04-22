@@ -52,8 +52,8 @@ const price = await client.getPairPriceBySymbols({
 
 // Get the quote price for a pair of contracts
 const price = await client.getPairPriceByAddress({
-    '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
-    '0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d',
+    fromTokenAddress: '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
+    toTokenAddress: '0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d',
     amount: 1,
 });
 // 583.4774620321
@@ -61,7 +61,7 @@ const price = await client.getPairPriceByAddress({
 
 ## Examples
 
-You can find examples in [/src/examples](/src/examples) :
+You can find examples in [/src/examples](/src/examples)
 
 -   [src/examples/getPrice.ts](/src/examples/getPrice.ts)
 
