@@ -82,30 +82,30 @@ describe('test client 1inch', () => {
                     expect(err).toEqual(new Error('"toTokenAddress" is not valid.'));
                 }
             });
-            it('should fails if fromTokenAddress is not in the token list', async () => {
-                expect.assertions(1);
-                try {
-                    await client.getPairPriceByAddress({
-                        fromTokenAddress: unknownTokenAddress,
-                        toTokenAddress: getTokenBySymbolMock.USDC.output.address,
-                        amount: 1,
-                    });
-                } catch (err) {
-                    expect(err).toEqual(new Error(`"fromTokenAddress" ${unknownTokenAddress} is not in the tokens list.`));
-                }
-            });
-            it('should fails if toTokenAddress is not in the token list', async () => {
-                expect.assertions(1);
-                try {
-                    await client.getPairPriceByAddress({
-                        fromTokenAddress: getTokenBySymbolMock.governance.output.address,
-                        toTokenAddress: unknownTokenAddress,
-                        amount: 1,
-                    });
-                } catch (err) {
-                    expect(err).toEqual(new Error(`"toTokenAddress" ${unknownTokenAddress} is not in the tokens list.`));
-                }
-            });
+            // it('should fails if fromTokenAddress is not in the token list', async () => {
+            //     expect.assertions(1);
+            //     try {
+            //         await client.getPairPriceByAddress({
+            //             fromTokenAddress: unknownTokenAddress,
+            //             toTokenAddress: getTokenBySymbolMock.USDC.output.address,
+            //             amount: 1,
+            //         });
+            //     } catch (err) {
+            //         expect(err).toEqual(new Error(`"fromTokenAddress" ${unknownTokenAddress} is not in the tokens list.`));
+            //     }
+            // });
+            // it('should fails if toTokenAddress is not in the token list', async () => {
+            //     expect.assertions(1);
+            //     try {
+            //         await client.getPairPriceByAddress({
+            //             fromTokenAddress: getTokenBySymbolMock.governance.output.address,
+            //             toTokenAddress: unknownTokenAddress,
+            //             amount: 1,
+            //         });
+            //     } catch (err) {
+            //         expect(err).toEqual(new Error(`"toTokenAddress" ${unknownTokenAddress} is not in the tokens list.`));
+            //     }
+            // });
             it('should success', async () => {
                 try {
                     const price = await client.getPairPriceByAddress({

@@ -103,7 +103,7 @@ export class Client1inch {
      * @memberof Client1inch
      */
     public async getPairPriceByAddress(attributes: Client1inchRequestQuoteAddress): Promise<number> {
-        const tokens = await this.getTokensList();
+        // const tokens = await this.getTokensList();
 
         if (!this.isAddressValid(attributes.fromTokenAddress)) {
             throw new Error('"fromTokenAddress" is not valid.');
@@ -111,12 +111,12 @@ export class Client1inch {
         if (!this.isAddressValid(attributes.toTokenAddress)) {
             throw new Error('"toTokenAddress" is not valid.');
         }
-        if (!tokens[attributes.fromTokenAddress]) {
-            throw new Error(`"fromTokenAddress" ${attributes.fromTokenAddress} is not in the tokens list.`);
-        }
-        if (!tokens[attributes.toTokenAddress]) {
-            throw new Error(`"toTokenAddress" ${attributes.toTokenAddress} is not in the tokens list.`);
-        }
+        // if (!tokens[attributes.fromTokenAddress]) {
+        //     throw new Error(`"fromTokenAddress" ${attributes.fromTokenAddress} is not in the tokens list.`);
+        // }
+        // if (!tokens[attributes.toTokenAddress]) {
+        //     throw new Error(`"toTokenAddress" ${attributes.toTokenAddress} is not in the tokens list.`);
+        // }
 
         const params: Client1inchRequestQuoteAddress = { ...attributes };
         params.amount = params.amount * 10 ** this.priceMultiplier;

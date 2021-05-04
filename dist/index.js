@@ -74,18 +74,11 @@ class Client1inch {
     }
     getPairPriceByAddress(attributes) {
         return __awaiter(this, void 0, void 0, function* () {
-            const tokens = yield this.getTokensList();
             if (!this.isAddressValid(attributes.fromTokenAddress)) {
                 throw new Error('"fromTokenAddress" is not valid.');
             }
             if (!this.isAddressValid(attributes.toTokenAddress)) {
                 throw new Error('"toTokenAddress" is not valid.');
-            }
-            if (!tokens[attributes.fromTokenAddress]) {
-                throw new Error(`"fromTokenAddress" ${attributes.fromTokenAddress} is not in the tokens list.`);
-            }
-            if (!tokens[attributes.toTokenAddress]) {
-                throw new Error(`"toTokenAddress" ${attributes.toTokenAddress} is not in the tokens list.`);
             }
             const params = Object.assign({}, attributes);
             params.amount = params.amount * Math.pow(10, this.priceMultiplier);
