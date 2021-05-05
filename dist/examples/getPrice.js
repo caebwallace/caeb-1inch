@@ -77,7 +77,7 @@ const index_1 = __importStar(require('../index'));
         const price = yield client.getPairPriceByAddress({
             fromTokenAddress: fromToken.address,
             toTokenAddress: toToken.address,
-            amount: 1,
+            amount: Math.pow(10, fromToken.decimals),
         });
         console.warn(`${fromToken.symbol} / ${toToken.symbol} :`, price);
     }))();

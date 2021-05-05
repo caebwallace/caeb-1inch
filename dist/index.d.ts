@@ -5,7 +5,6 @@ export interface Client1inchProps {
     apiVersion?: string;
     chainId?: number;
     proxy?: string;
-    pricePrecision?: number;
 }
 export interface Client1inchRequestQuoteAddress {
     fromTokenAddress: string;
@@ -37,7 +36,6 @@ export declare class Client1inch {
     protected apiUrl: string;
     protected apiVersion: string;
     protected chainId: number;
-    protected priceMultiplier: number;
     private tokens;
     constructor(attributes?: Client1inchProps);
     getTokensList(force?: boolean): Promise<ITokenList>;

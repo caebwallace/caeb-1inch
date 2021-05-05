@@ -7,7 +7,6 @@ export interface Client1inchProps {
     apiVersion?: string;
     chainId?: number;
     proxy?: string;
-    pricePrecision?: number;
 }
 
 export interface Client1inchRequestQuoteAddress {
@@ -52,7 +51,6 @@ export class Client1inch {
     protected apiVersion: string = 'v3.0';
     protected chainId: number = IBlockchain.BSC;
     // protected proxy: string;
-    protected priceMultiplier: number = 10;
     private tokens: ITokenList;
 
     /**
@@ -118,23 +116,10 @@ export class Client1inch {
 
         // Fetch price
         const params: Client1inchRequestQuoteAddress = { ...attributes };
-        params.amount = params.amount * 10 ** this.priceMultiplier;
         const data = await this.fetchRequest('quote', params);
-        const toTokenAmount = data.toTokenAmount / 10 ** this.priceMultiplier;
-
-        // Apply decimals difference (there's a big with 1inch actually)
-        // FIXME: watch for 1inch fix
-        const fromDecimals = data.fromToken.decimals;
-        const toDecimals = data.toToken.decimals;
-        if (fromDecimals !== toDecimals) {
-            if (toDecimals > fromDecimals) {
-                return toTokenAmount / 10 ** (toDecimals - fromDecimals);
-            }
-        }
-        // console.log('----', fromDecimals, toDecimals, toTokenAmount / ( 10 ** (toDecimals - fromDecimals)))
 
         // Else simply return the token amount
-        return toTokenAmount;
+        return data.toTokenAmount / 10 ** data.toToken.decimals;
     }
 
     /**
@@ -178,9 +163,10 @@ export class Client1inch {
         const params: any = this.buildRequestParams(_params);
         const method = 'get';
         const url = `${this.apiUrl}/${this.apiVersion}/${this.chainId}/${path}`;
+        // console.log(path, params)
         try {
             const { data } = await axios({ method, url, params });
-            // console.log(path, data)
+            // console.log(JSON.stringify(data))
             return data;
         } catch (err) {
             throw new Error(`Can not fetch ${url} : ${err}`);

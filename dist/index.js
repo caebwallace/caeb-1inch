@@ -51,7 +51,6 @@ class Client1inch {
         this.apiUrl = 'https://api.1inch.exchange';
         this.apiVersion = 'v3.0';
         this.chainId = IBlockchain.BSC;
-        this.priceMultiplier = 10;
         if (attributes && attributes.apiUrl) this.apiUrl = attributes.apiUrl;
         if (attributes && attributes.apiVersion) this.apiVersion = attributes.apiVersion;
         if (attributes && attributes.chainId) this.chainId = attributes.chainId;
@@ -79,17 +78,8 @@ class Client1inch {
                 throw new Error('"toTokenAddress" is not valid.');
             }
             const params = Object.assign({}, attributes);
-            params.amount = params.amount * Math.pow(10, this.priceMultiplier);
             const data = yield this.fetchRequest('quote', params);
-            const toTokenAmount = data.toTokenAmount / Math.pow(10, this.priceMultiplier);
-            const fromDecimals = data.fromToken.decimals;
-            const toDecimals = data.toToken.decimals;
-            if (fromDecimals !== toDecimals) {
-                if (toDecimals > fromDecimals) {
-                    return toTokenAmount / Math.pow(10, toDecimals - fromDecimals);
-                }
-            }
-            return toTokenAmount;
+            return data.toTokenAmount / Math.pow(10, data.toToken.decimals);
         });
     }
     getPairPriceBySymbols(attributes) {

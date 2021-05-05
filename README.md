@@ -42,19 +42,19 @@ const token = await client.getTokenBySymbol('BNB');
 //     "logoURI": "https: //tokens.1inch.exchange/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c.png"
 // }
 
-// Get the quote price for a pair of symbols
+// Get the quote price for a pair of symbols (raised to a fromToken decimals power)
 const price = await client.getPairPriceBySymbols({
     fromTokenSymbol: 'BNB',
     toTokenSymbol: 'USDC',
-    amount: 1,
+    amount: 1 ** 18,
 });
 // 583.4774620321
 
-// Get the quote price for a pair of contracts
+// Get the quote price for a pair of contracts (raised to a fromToken decimals power)
 const price = await client.getPairPriceByAddress({
     fromTokenAddress: '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
     toTokenAddress: '0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d',
-    amount: 1,
+    amount: 1 ** 18,
 });
 // 583.4774620321
 ```

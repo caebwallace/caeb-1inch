@@ -15,6 +15,7 @@ jest.spyOn(Client1inch.prototype as any, 'getTokensList').mockImplementation(Tok
 // Start tests
 describe('test client 1inch', () => {
     let client: Client1inch;
+    const inputAmount = 10 ** getTokenBySymbolMock.governance.output.decimals;
     it('should exists', () => {
         expect(Client1inch).toBeDefined;
     });
@@ -64,7 +65,7 @@ describe('test client 1inch', () => {
                     await client.getPairPriceByAddress({
                         fromTokenAddress: 'BAD_ADDRESS',
                         toTokenAddress: getTokenBySymbolMock.USDC.output.address,
-                        amount: 1,
+                        amount: inputAmount,
                     });
                 } catch (err) {
                     expect(err).toEqual(new Error('"fromTokenAddress" is not valid.'));
@@ -76,7 +77,7 @@ describe('test client 1inch', () => {
                     await client.getPairPriceByAddress({
                         fromTokenAddress: getTokenBySymbolMock.governance.output.address,
                         toTokenAddress: 'BAD_ADDRESS',
-                        amount: 1,
+                        amount: inputAmount,
                     });
                 } catch (err) {
                     expect(err).toEqual(new Error('"toTokenAddress" is not valid.'));
@@ -111,7 +112,7 @@ describe('test client 1inch', () => {
                     const price = await client.getPairPriceByAddress({
                         fromTokenAddress: getTokenBySymbolMock.governance.output.address,
                         toTokenAddress: getTokenBySymbolMock.USDC.output.address,
-                        amount: 1,
+                        amount: inputAmount,
                     });
                     expect(price).toEqual(fetchRequestMockPriceExpected);
                 } catch (err) {
@@ -125,7 +126,7 @@ describe('test client 1inch', () => {
                     const price = await client.getPairPriceBySymbols({
                         fromTokenSymbol: getTokenBySymbolMock.governance.input,
                         toTokenSymbol: getTokenBySymbolMock.USDC.input,
-                        amount: 1,
+                        amount: inputAmount,
                     });
                     expect(price).toEqual(fetchRequestMockPriceExpected);
                 } catch (err) {

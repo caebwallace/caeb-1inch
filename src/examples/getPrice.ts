@@ -13,7 +13,7 @@ import Caeb1inch, { IBlockchain, IToken } from '../index';
     const price = await client.getPairPriceByAddress({
         fromTokenAddress: fromToken.address,
         toTokenAddress: toToken.address,
-        amount: 1,
+        amount: 10 ** fromToken.decimals,
     });
 
     // Show price
