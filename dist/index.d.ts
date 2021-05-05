@@ -37,7 +37,6 @@ export declare class Client1inch {
     protected apiUrl: string;
     protected apiVersion: string;
     protected chainId: number;
-    protected pricePrecision: number;
     protected priceMultiplier: number;
     private tokens;
     constructor(attributes?: Client1inchProps);
