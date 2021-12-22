@@ -1,6 +1,6 @@
 {
     "name": "caeb-1inch",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "description": "1inch Wrapper made by CAEB",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
