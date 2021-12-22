@@ -1,21 +1,25 @@
 {
     "name": "caeb-1inch",
-    "version": "0.1.22",
+    "version": "0.2.2",
     "description": "1inch Wrapper made by CAEB",
     "main": "dist/index.js",
+    "types": "dist/index.d.ts",
     "scripts": {
-        "build": "npm run format && npm run lint && npm run test && npm run build:clean:before && tsc --project tsconfig.build.json --skipLibCheck && npm run doc",
-        "build:clean:before": "rimraf ./dist",
-        "build:clean:after": "rimraf ./dist/__mocks__",
-        "build:watch": "ts-node-dev --respawn -- src/index.ts",
+        "prebuild": "rimraf ./dist && npm run prettier && yarn run test:coverage && yarn run make-badges",
+        "build": "tsc --module commonjs --project tsconfig.build.json",
+        "postbuild": "npm run doc && cp package.json dist",
+        "build:publish": "npm --no-git-tag-version version patch && npm run build && npm publish",
         "test": "jest --verbose",
         "test:watch": "jest --watchAll",
-        "format": "prettier --write \"src/**/*.{ts,json}\"",
-        "lint": "tslint -p tsconfig.json",
+        "test:coverage": "jest --collectCoverage --verbose",
+        "typecheck": "tsc --noEmit --skipLibCheck",
+        "prettier": "prettier --write \"src/**/*.{ts,json}\"",
+        "lint": "eslint ./src --ext .js,.ts",
+        "release": "standard-version",
         "prepare": "husky install",
-        "doc": "rimraf ./docs && typedoc",
-        "example": "ts-node-dev -- src/examples/getPrice.ts",
-        "build:publish": "npm --no-git-tag-version version patch && npm run build && npm publish"
+        "doc": "rimraf ./docs && typedoc --tsconfig tsconfig.json",
+        "make-badges": "istanbul-badges-readme",
+        "ci-pipeline": "yarn run lint && yarn run test && yarn run typecheck"
     },
     "homepage": "https://github.com/caebwallace/caeb-1inch#readme",
     "repository": {
@@ -33,28 +37,53 @@
     ],
     "author": "Caeb WALLACE (https://github.com/caebwallace/)",
     "license": "MIT",
+    "dependencies": {
+        "@ethersproject/address": "^5.5.0",
+        "@ethersproject/bignumber": "^5.5.0",
+        "axios": "^0.24.0",
+        "ts-custom-error": "^3.2.0"
+    },
     "devDependencies": {
-        "@types/bn.js": "^5.1.0",
-        "@types/jest": "^26.0.22",
-        "@types/node": "^14.14.41",
-        "husky": "^6.0.0",
-        "jest": "^26.6.3",
-        "jest-extended": "^0.11.5",
-        "lint-staged": "^10.5.4",
-        "prettier": "^2.2.1",
+        "@babel/core": "^7.13.16",
+        "@babel/preset-env": "^7.13.15",
+        "@babel/preset-typescript": "^7.13.0",
+        "@commitlint/cli": "^15.0.0",
+        "@commitlint/config-conventional": "^15.0.0",
+        "@trivago/prettier-plugin-sort-imports": "^3.1.1",
+        "@types/jest": "^27.0.3",
+        "@types/node": "^17.0.1",
+        "@typescript-eslint/eslint-plugin": "^5.8.0",
+        "@typescript-eslint/parser": "^5.8.0",
+        "eslint": "^8.5.0",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-config-standard-with-typescript": "^21.0.1",
+        "eslint-plugin-import": "^2.22.1",
+        "eslint-plugin-node": "11",
+        "eslint-plugin-promise": "6.0.0",
+        "eslint-plugin-unused-imports": "^2.0.0",
+        "husky": "^7.0.4",
+        "istanbul-badges-readme": "^1.2.1",
+        "jest": "^27.4.5",
+        "jest-extended": "^1.2.0",
+        "lint-staged": "^12.1.3",
+        "prettier": "^2.5.1",
         "rimraf": "^3.0.2",
-        "ts-jest": "^26.5.5",
-        "ts-node-dev": "^1.1.6",
-        "tslint": "^6.1.3",
-        "tslint-config-prettier": "^1.18.0",
-        "typedoc": "^0.20.35",
-        "typescript": "^4.2.4"
+        "standard-version": "^9.3.2",
+        "ts-jest": "^27.1.2",
+        "typedoc": "^0.22.10",
+        "typescript": "^4.5.4"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged && yarn run typecheck"
+        }
     },
     "lint-staged": {
-        "*.{js,css,md,ts,json}": "prettier --write"
-    },
-    "dependencies": {
-        "axios": "^0.21.1",
-        "web3-utils": "^1.3.5"
+        "*.{js,css,md,ts,json}": [
+            "yarn run prettier"
+        ],
+        "*.{js,ts}": [
+            "yarn run lint"
+        ]
     }
 }
