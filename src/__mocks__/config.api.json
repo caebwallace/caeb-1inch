@@ -1,0 +1,5 @@
+{
+    "chainId": 1,
+    "apiUrl": "https://api.1inch.exchange",
+    "apiVersion": "v4.0"
+}

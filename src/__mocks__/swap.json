@@ -1,0 +1,24 @@
+[
+    {
+        "id": "test.swap.success-1",
+        "type:": "swap",
+        "expectSuccess": true,
+        "request": {
+            "fromAddress": "0x1Ed970C1D3F9B85bA6607d45C752E22D9b0b09f4",
+            "fromTokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+            "toTokenAddress": "0x111111111117dc0aa78b770fa6a738034120c302",
+            "amount": "10000000000000000",
+            "slippage": 1
+        },
+        "response": {
+            "tx": {
+                "from": "string",
+                "to": "string",
+                "data": "string",
+                "value": "string",
+                "gasPrice": "string",
+                "gas": "string"
+            }
+        }
+    }
+]

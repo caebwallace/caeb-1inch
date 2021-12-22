@@ -1,6 +1,6 @@
 {
     "name": "caeb-1inch",
-    "version": "0.2.2",
+    "version": "0.2.0",
     "description": "1inch Wrapper made by CAEB",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
@@ -79,10 +79,10 @@
         }
     },
     "lint-staged": {
-        "*.{js,css,md,ts,json}": [
+        "src/**/*.{js,css,md,ts,json}": [
             "yarn run prettier"
         ],
-        "*.{js,ts}": [
+        "src/*.{js,ts}": [
             "yarn run lint"
         ]
     }
